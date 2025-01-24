@@ -1,19 +1,19 @@
 [
   {
-    "titulo": "Proyecto Destacado 1",
-    "descripcion": "Descripción breve del proyecto 1. Breve resumen de lo que hiciste en el proyecto.",
+    "titulo": "Gigantosaurus",
+    "descripcion": "It's a platform race game where we will take the control of four friends: Rocky, Tiny, Mazu and Bill and we will solve some puzzles and we will get over some situations to go to the next level. This game was fully developed in C++ with the engine Unreal Engine. In this games we have two difeerent ways of playing. One it's a platform game, where the player can move and jump all over the map solving puzzles and collecting stuff. The other way to play it's the racing karts, where you race against other characters to finish first. This project was where I started really to develop in Unreal and it's where I started loving the engine. This game it's avaiable for diferent platforms such as PlayStation, Nintendo Switch, PC.",
     "video": "proyectos/proyecto1/video.mp4",
     "link": "proyectos/proyecto1/index.html"
   },
   {
     "titulo": "Proyecto Destacado 2",
-    "descripcion": "Descripción breve del proyecto 2. Breve resumen de lo que hiciste en el proyecto.",
+    "descripcion": "Descripciï¿½n breve del proyecto 2. Breve resumen de lo que hiciste en el proyecto.",
     "video": "proyectos/proyecto2/video.mp4",
     "link": "proyectos/proyecto2/index.html"
   },
   {
     "titulo": "Proyecto Destacado 3",
-    "descripcion": "Descripción breve del proyecto 3. Breve resumen de lo que hiciste en el proyecto.",
+    "descripcion": "Descripciï¿½n breve del proyecto 3. Breve resumen de lo que hiciste en el proyecto.",
     "video": "proyectos/proyecto3/video.mp4",
     "link": "proyectos/proyecto3/index.html"
   }
