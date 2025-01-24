@@ -24,8 +24,7 @@
 
     <!-- Pantalla de carga -->
     <div id="loader">
-        <div class="spinner"></div>
-        <p>Cargando...</p>
+        <img id="loading-image" src="assets/loading-image.png" alt="Cargando...">
     </div>
 
     <script>
@@ -44,27 +43,27 @@
                     }
 
                     projectDiv.innerHTML = `
-                                <div class="project-video">
-                                    <video controls>
-                                        <source src="${project.video}" type="video/mp4">
-                                        Tu navegador no soporta videos HTML5.
-                                    </video>
-                                </div>
-                                <div class="project-info">
-                                    <h2>${project.titulo}</h2>
-                                    <p>${project.descripcion}</p>
-                                    <a href="${project.link}">Leer más</a>
-                                </div>
-                            `;
+                                    <div class="project-video">
+                                        <video controls>
+                                            <source src="${project.video}" type="video/mp4">
+                                            Tu navegador no soporta videos HTML5.
+                                        </video>
+                                    </div>
+                                    <div class="project-info">
+                                        <h2>${project.titulo}</h2>
+                                        <p>${project.descripcion}</p>
+                                        <a href="${project.link}">Leer más</a>
+                                    </div>
+                                `;
                     container.appendChild(projectDiv);
                 });
             });
 
         // Ocultar la pantalla de carga y mostrar el contenido cuando todo esté listo
-        //window.addEventListener('load', function () {
-        //    document.getElementById('loader').style.display = 'none';
-        //    document.getElementById('content').style.display = 'block';
-        //});
+        window.addEventListener('load', function () {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        });
     </script>
 
 </body>
