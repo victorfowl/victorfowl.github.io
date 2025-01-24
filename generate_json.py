@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import json
 
@@ -24,3 +25,4 @@ with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(projects, f, ensure_ascii=False, indent=4)
 
 print(f'Archivo {output_file} generado correctamente.')
+
