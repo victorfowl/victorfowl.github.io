@@ -10,5 +10,11 @@
     "descripcion": "Descripci�n breve del proyecto 2. Breve resumen de lo que hiciste en el proyecto.",
     "video": "proyectos/proyecto2/video.mp4",
     "link": "proyectos/proyecto2/index.html"
+  },
+  {
+    "titulo": "Proyecto Destacado 3",
+    "descripcion": "Descripci�n breve del proyecto 3. Breve resumen de lo que hiciste en el proyecto.",
+    "video": "proyectos/proyecto3/video.mp4",
+    "link": "proyectos/proyecto3/index.html"
   }
 ]
