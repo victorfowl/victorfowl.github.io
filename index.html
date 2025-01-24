@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Barra de navegaci�n -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="career.html">Professional Career</a>
+        <a href="about.html">About Me</a>
+    </nav>
+
+    <!-- Secci�n de Proyectos Relevantes -->
+    <div id="projects-container"></div>
+    <script>
+    // Cargar proyectos desde el archivo JSON
+        fetch('data/proyectos.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('projects-container');
+                data.forEach((project, index) => {
+                    const projectDiv = document.createElement('div');
+                    projectDiv.classList.add('project');
+                    if (index % 2 === 0) {
+                        projectDiv.classList.add('odd');
+                    } else {
+                        projectDiv.classList.add('even');
+                    }
+
+                    projectDiv.innerHTML = `
+                            <div class="project-video">
+                                <video controls>
+                                    <source src="${project.video}" type="video/mp4">
+                                    Tu navegador no soporta videos HTML5.
+                                </video>
+                            </div>
+                            <div class="project-info">
+                                <h2>${project.titulo}</h2>
+                                <p>${project.descripcion}</p>
+                                <a href="${project.link}">Leer más</a>
+                            </div>
+                        `;
+                    container.appendChild(projectDiv);
+                });
+            });</script>
+
+</body>
+</html>

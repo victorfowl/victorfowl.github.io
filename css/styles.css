@@ -1,0 +1,98 @@
+/* Estilo general */
+body {
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo de los proyectos */
+.project {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid orange;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+    .project.even {
+        flex-direction: row-reverse; /* Alterna el orden en los proyectos pares */
+    }
+
+.project-video {
+    flex: 1;
+    padding: 20px;
+    max-width: 50%;
+}
+
+    .project-video video {
+        width: 100%;
+        border-radius: 8px;
+        aspect-ratio: 16/9;
+    }
+
+.project-info {
+    flex: 1;
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    border: 2px solid orange;
+    background-color: transparent;
+    border-radius: 5px;
+    max-width: 50%;
+}
+
+    .project-info h2 {
+        margin-bottom: 10px;
+    }
+
+    .project-info p {
+        margin-bottom: 20px;
+    }
+
+    .project-info a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .project-info a:hover {
+            text-decoration: underline;
+        }
+
+/* Navegación */
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 40px; /* Aumenta el espacio entre la barra de navegación y el contenido */
+}
+
+    nav a {
+        color: white;
+        margin-right: 20px;
+        text-decoration: none;
+    }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+/* Cabeceras */
+h1 {
+    color: white;
+    padding-left: 10%;
+}
+
+/* Estilos adicionales */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
