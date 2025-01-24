@@ -12,14 +12,17 @@ for folder in os.listdir(projects_dir):
     html_file = os.path.join(project_path, 'index.html')
     video_file = os.path.join(project_path, 'video.mp4')
 
-    if os.path.isfile(html_file) and os.path.isfile(video_file):
-        project = {
-            'titulo': folder,
-            'link': f'proyectos/{folder}/index.html',
-            'video': f'proyectos/{folder}/video.mp4',
-            'descripcion': f'Descripción del proyecto {folder}'
-        }
-        projects.append(project)
+    try:
+        if os.path.isfile(html_file) and os.path.isfile(video_file):
+            project = {
+                'titulo': folder,
+                'link': f'proyectos/{folder}/index.html',
+                'video': f'proyectos/{folder}/video.mp4',
+                'descripcion': f'Descripción del proyecto {folder}'
+            }
+            projects.append(project)
+    except UnicodeDecodeError as e:
+        print(f"Error de codificación en el archivo {html_file} o {video_file}: {e}")
 
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(projects, f, ensure_ascii=False, indent=4)

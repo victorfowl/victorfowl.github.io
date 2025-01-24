@@ -4,17 +4,5 @@
     "descripcion": "It's a platform race game where we will take the control of four friends: Rocky, Tiny, Mazu and Bill and we will solve some puzzles and we will get over some situations to go to the next level. The studio where was created this game is WildSphere.",
     "video": "proyectos/proyecto1/video.mp4",
     "link": "proyectos/proyecto1/index.html"
-  },
-  {
-    "titulo": "Proyecto Destacado 2",
-    "descripcion": "Descripci�n breve del proyecto 2. Breve resumen de lo que hiciste en el proyecto.",
-    "video": "proyectos/proyecto2/video.mp4",
-    "link": "proyectos/proyecto2/index.html"
-  },
-  {
-    "titulo": "Proyecto Destacado 3",
-    "descripcion": "Descripci�n breve del proyecto 3. Breve resumen de lo que hiciste en el proyecto.",
-    "video": "proyectos/proyecto3/video.mp4",
-    "link": "proyectos/proyecto3/index.html"
   }
 ]
