@@ -27,6 +27,28 @@ body {
     width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
     animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Ocultar el contenido de la página inicialmente */
+#content {
+    display: none;
+}
 /* Estilo de los proyectos */
 .project {
     display: flex;
