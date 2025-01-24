@@ -19,7 +19,7 @@ try:
                 'titulo': carpeta,
                 'link': proyecto_html,
                 'video': proyecto_video,
-                'descripcion': 'Descripción generada automáticamente'
+                'descripcion': 'Descripcion generada automaticamente'
             }
             proyectos.append(proyecto)
 
