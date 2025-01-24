@@ -19,8 +19,28 @@
 
     <!-- Secci�n de Proyectos Relevantes -->
     <div id="projects-container"></div>
+    <!-- El contenido de tu página -->
+    <div id="content" style="display: none;">
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="career.html">Professional Career</a>
+            <a href="about.html">About Me</a>
+        </nav>
+
+        <!-- Sección de Proyectos Relevantes -->
+        <div id="projects-container"></div>
+    </div>
+
+    <!-- Pantalla de carga -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
     <script>
-    // Cargar proyectos desde el archivo JSON
+        // Cargar proyectos desde el archivo JSON
         fetch('data/proyectos.json')
             .then(response => response.json())
             .then(data => {
@@ -35,21 +55,28 @@
                     }
 
                     projectDiv.innerHTML = `
-                            <div class="project-video">
-                                <video controls>
-                                    <source src="${project.video}" type="video/mp4">
-                                    Tu navegador no soporta videos HTML5.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h2>${project.titulo}</h2>
-                                <p>${project.descripcion}</p>
-                                <a href="${project.link}">Leer más</a>
-                            </div>
-                        `;
+                                <div class="project-video">
+                                    <video controls>
+                                        <source src="${project.video}" type="video/mp4">
+                                        Tu navegador no soporta videos HTML5.
+                                    </video>
+                                </div>
+                                <div class="project-info">
+                                    <h2>${project.titulo}</h2>
+                                    <p>${project.descripcion}</p>
+                                    <a href="${project.link}">Leer más</a>
+                                </div>
+                            `;
                     container.appendChild(projectDiv);
                 });
-            });</script>
+            });
+
+        // Ocultar la pantalla de carga y mostrar el contenido cuando todo esté listo
+        window.addEventListener('load', function () {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>
