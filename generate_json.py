@@ -2,30 +2,29 @@
 import os
 import json
 
-projects_dir = 'proyectos'
-output_file = 'data/proyectos.json'
+proyectos = []
 
-projects = []
+try:
+    for carpeta in os.listdir('proyectos'):
+        path_carpeta = os.path.join('proyectos', carpeta)
+        if os.path.isdir(path_carpeta):
+            # Suponiendo que siempre hay un index.html y un video.mp4
+            proyecto_html = os.path.join(path_carpeta, 'index.html')
+            proyecto_video = os.path.join(path_carpeta, 'video.mp4')
 
-for folder in os.listdir(projects_dir):
-    project_path = os.path.join(projects_dir, folder)
-    html_file = os.path.join(project_path, 'index.html')
-    video_file = os.path.join(project_path, 'video.mp4')
+            with open(proyecto_html, 'r', encoding='utf-8') as f_html:
+                contenido_html = f_html.read()
 
-    try:
-        if os.path.isfile(html_file) and os.path.isfile(video_file):
-            project = {
-                'titulo': folder,
-                'link': f'proyectos/{folder}/index.html',
-                'video': f'proyectos/{folder}/video.mp4',
-                'descripcion': f'Descripción del proyecto {folder}'
+            proyecto = {
+                'titulo': carpeta,
+                'link': proyecto_html,
+                'video': proyecto_video,
+                'descripcion': 'Descripción generada automáticamente'
             }
-            projects.append(project)
-    except UnicodeDecodeError as e:
-        print(f"Error de codificación en el archivo {html_file} o {video_file}: {e}")
+            proyectos.append(proyecto)
 
-with open(output_file, 'w', encoding='utf-8') as f:
-    json.dump(projects, f, ensure_ascii=False, indent=4)
-
-print(f'Archivo {output_file} generado correctamente.')
+    with open('data/proyectos.json', 'w', encoding='utf-8') as json_file:
+        json.dump(proyectos, json_file, ensure_ascii=False, indent=4)
+except Exception as e:
+    print(f"Error al procesar: {e}")
 
