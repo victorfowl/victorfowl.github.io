@@ -13,6 +13,8 @@
         "link": "proyectos/Tu Cara Me Suena/index.html",
         "video": "proyectos/Tu Cara Me Suena/video.mp4",
         "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
-        "etiquetas": []
+        "etiquetas": [
+            "home"
+        ]
     }
 ]
