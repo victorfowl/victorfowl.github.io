@@ -28,8 +28,8 @@
     </div>
 
     <script>
-        // Cargar proyectos desde el archivo JSON
-        fetch('data/proyectos.json')
+        // Cargar proyectos desde el archivo JSON con un timestamp para evitar cache
+        fetch('data/proyectos.json?' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('projects-container');
@@ -45,18 +45,18 @@
                         }
 
                         projectDiv.innerHTML = `
-                                <div class="project-video">
-                                    <video controls>
-                                        <source src="${project.video}" type="video/mp4">
-                                        Tu navegador no soporta videos HTML5.
-                                    </video>
-                                </div>
-                                <div class="project-info">
-                                    <h2>${project.titulo}</h2>
-                                    <p>${project.descripcion}</p>
-                                    <a href="${project.link}">Leer más</a>
-                                </div>
-                            `;
+                            <div class="project-video">
+                                <video controls>
+                                    <source src="${project.video}" type="video/mp4">
+                                    Tu navegador no soporta videos HTML5.
+                                </video>
+                            </div>
+                            <div class="project-info">
+                                <h2>${project.titulo}</h2>
+                                <p>${project.descripcion}</p>
+                                <a href="${project.link}">Leer más</a>
+                            </div>
+                        `;
                         container.appendChild(projectDiv);
                     }
                 });
