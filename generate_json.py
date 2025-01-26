@@ -24,6 +24,7 @@ try:
                     for line in lines:
                         if line.startswith('#'):
                             etiqueta = line.strip().lstrip('#').lower() 
+                            print(etiqueta)
                             etiquetas.append(etiqueta)
                         else:
                             descripcion += line.strip() + " " 
