@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import json
 
@@ -8,7 +7,6 @@ try:
     for carpeta in os.listdir('proyectos'):
         path_carpeta = os.path.join('proyectos', carpeta)
         if os.path.isdir(path_carpeta):
-            # Suponiendo que siempre hay un index.html, video.mp4 y descripcion.txt
             proyecto_html = os.path.join(path_carpeta, 'index.html')
             proyecto_video = os.path.join(path_carpeta, 'video.mp4')
             proyecto_txt = os.path.join(path_carpeta, 'description.txt')
@@ -19,16 +17,25 @@ try:
 
             # Leer la descripción del archivo .txt
             descripcion = ""
+            etiquetas = []
             if os.path.exists(proyecto_txt):
                 with open(proyecto_txt, 'r', encoding='utf-8') as f_txt:
-                    descripcion = f_txt.read().strip() 
+                    lines = f_txt.readlines()
+                    # Separar etiquetas que empiezan con '#'
+                    for line in lines:
+                        if line.startswith('#'):
+                            etiqueta = line.strip().lstrip('#').lower()  # Eliminar '#' y convertir a minúsculas
+                            etiquetas.append(etiqueta)
+                        else:
+                            descripcion += line.strip() + " "  # Añadir el texto de descripción normal
 
             # Crear el proyecto con los datos correspondientes
             proyecto = {
                 'titulo': carpeta,
                 'link': proyecto_html,
                 'video': proyecto_video,
-                'descripcion': descripcion
+                'descripcion': descripcion.strip(),  # Limpiar espacios extra
+                'etiquetas': etiquetas
             }
             proyectos.append(proyecto)
 
