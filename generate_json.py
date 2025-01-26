@@ -15,7 +15,6 @@ try:
             with open(proyecto_html, 'r', encoding='utf-8') as f_html:
                 contenido_html = f_html.read()
 
-            # Leer la descripción del archivo .txt
             descripcion = ""
             etiquetas = []
             if os.path.exists(proyecto_txt):
@@ -24,10 +23,10 @@ try:
                     # Separar etiquetas que empiezan con '#'
                     for line in lines:
                         if line.startswith('#'):
-                            etiqueta = line.strip().lstrip('#').lower()  # Eliminar '#' y convertir a minúsculas
+                            etiqueta = line.strip().lstrip('#').lower() 
                             etiquetas.append(etiqueta)
                         else:
-                            descripcion += line.strip() + " "  # Añadir el texto de descripción normal
+                            descripcion += line.strip() + " " 
 
             # Crear el proyecto con los datos correspondientes
             proyecto = {
