@@ -3,12 +3,16 @@
         "titulo": "Gigantosaurus",
         "link": "proyectos/Gigantosaurus/index.html",
         "video": "proyectos/Gigantosaurus/video.mp4",
-        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere."
+        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
+        "etiquetas": [
+            "home"
+        ]
     },
     {
         "titulo": "Tu Cara Me Suena",
         "link": "proyectos/Tu Cara Me Suena/index.html",
         "video": "proyectos/Tu Cara Me Suena/video.mp4",
-        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere."
+        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
+        "etiquetas": []
     }
 ]
