@@ -44,13 +44,33 @@
                             projectDiv.classList.add('even');
                         }
 
+                        // Mostrar el contenido según el tipo (link, video o imagen)
+                        let mediaContent;
+                        if (project.tipo === "link") {
+                            mediaContent = `
+                                <div class="project-link">
+                                    <iframe width="560" height="315" src="${project.media}" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            `;
+                        } else if (project.tipo === "video") {
+                            mediaContent = `
+                                <div class="project-video">
+                                    <video controls>
+                                        <source src="${project.media}" type="video/mp4">
+                                        Tu navegador no soporta videos HTML5.
+                                    </video>
+                                </div>
+                            `;
+                        } else if (project.tipo === "imagen") {
+                            mediaContent = `
+                                <div class="project-image">
+                                    <img src="${project.media}" alt="${project.titulo}">
+                                </div>
+                            `;
+                        }
+
                         projectDiv.innerHTML = `
-                            <div class="project-video">
-                                <video controls>
-                                    <source src="${project.video}" type="video/mp4">
-                                    Tu navegador no soporta videos HTML5.
-                                </video>
-                            </div>
+                            ${mediaContent}
                             <div class="project-info">
                                 <h2>${project.titulo}</h2>
                                 <p>${project.descripcion}</p>
