@@ -1,20 +1,32 @@
 [
     {
-        "titulo": "Gigantosaurus",
-        "link": "proyectos/Gigantosaurus/index.html",
-        "video": "proyectos/Gigantosaurus/video.mp4",
-        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
-        "etiquetas": [
-            "home"
-        ]
-    },
-    {
         "titulo": "Tu Cara Me Suena",
         "link": "proyectos/Tu Cara Me Suena/index.html",
-        "video": "proyectos/Tu Cara Me Suena/video.mp4",
         "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
         "etiquetas": [
             "home"
-        ]
+        ],
+        "tipo": "video",
+        "media": "proyectos/Tu Cara Me Suena/video.mp4"
+    },
+    {
+        "titulo": "Gigantosaurus",
+        "link": "proyectos/Gigantosaurus/index.html",
+        "descripcion": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.",
+        "etiquetas": [
+            "home"
+        ],
+        "tipo": "video",
+        "media": "proyectos/Gigantosaurus/video.mp4"
+    },
+    {
+        "titulo": "Maze of Gods",
+        "link": "proyectos/Maze of Gods/index.html",
+        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
+        "etiquetas": [
+            "home"
+        ],
+        "tipo": "video",
+        "media": "proyectos/Maze of Gods/video.mp4"
     }
 ]
