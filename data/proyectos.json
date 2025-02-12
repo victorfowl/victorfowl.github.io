@@ -12,9 +12,10 @@
     {
         "titulo": "Gigantosaurus",
         "link": "proyectos/Gigantosaurus/index.html",
-        "descripcion": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.\n\nUrl: https://www.youtube.com/embed/bAwn30euRgY?si=JcUqVfqZwTkQDBPj",
+        "descripcion": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.\n\n\nUrl: https://www.youtube.com/embed/bAwn30euRgY?si=JcUqVfqZwTkQDBPj",
         "etiquetas": [
-            "home"
+            "home",
+            "featured"
         ],
         "tipo": "imagen",
         "media": null
