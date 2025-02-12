@@ -8,7 +8,7 @@ try:
     for carpeta in os.listdir('proyectos'):
         path_carpeta = os.path.join('proyectos', carpeta)
         if os.path.isdir(path_carpeta):
-            # Suponiendo que siempre hay un index.html y description.txt
+            # Definir rutas y variables iniciales
             proyecto_html = os.path.join(path_carpeta, 'index.html')
             proyecto_txt = os.path.join(path_carpeta, 'description.txt')
             proyecto_video = None
@@ -24,8 +24,8 @@ try:
                         linea = linea.strip()
                         if linea.startswith("#"):
                             etiquetas.append(linea[1:].lower())  # Guardar etiquetas en minúsculas
-                        elif "URL:" in linea:
-                            link_video = linea.split(":")[1].strip()  # Extraer el link del video
+                        elif linea.startswith("URL:"):
+                            link_video = linea.split("URL:", 1)[1].strip()  # Extraer el link del video
                         else:
                             descripcion += linea + "\n"
                     descripcion = descripcion.strip()

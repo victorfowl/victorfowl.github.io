@@ -28,6 +28,11 @@
     </div>
 
     <script>
+        // Función para determinar si el link es de YouTube
+        function esLinkYoutube(link) {
+            return link.includes("youtube.com") || link.includes("youtu.be");
+        }
+
         // Cargar proyectos desde el archivo JSON con un timestamp para evitar cache
         fetch('data/proyectos.json?' + new Date().getTime())
             .then(response => response.json())
@@ -46,32 +51,33 @@
 
                         // Mostrar el contenido según el tipo (link, video o imagen)
                         let mediaContent = '';
-                        if (project.link) {
-                            // Si existe un link (como un video de YouTube)
+                        if (project.tipo === 'link' && esLinkYoutube(project.media)) {
+                            // Insertar el video de YouTube en el iframe
                             mediaContent = `
                                     <div class="project-video">
-                                        <iframe width="560" height="315" src="${project.link}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 `;
-                        } else if (project.video) {
-                            // Si existe un archivo de video
+                        } else if (project.tipo === 'video') {
+                            // Mostrar video local
                             mediaContent = `
                                     <div class="project-video">
                                         <video controls>
-                                            <source src="${project.video}" type="video/mp4">
+                                            <source src="${project.media}" type="video/mp4">
                                             Tu navegador no soporta videos HTML5.
                                         </video>
                                     </div>
                                 `;
-                        } else if (project.imagen) {
-                            // Si no hay link ni video, mostrar una imagen
+                        } else if (project.tipo === 'imagen') {
+                            // Mostrar imagen si no hay video
                             mediaContent = `
                                     <div class="project-image">
-                                        <img src="${project.imagen}" alt="${project.titulo}">
+                                        <img src="${project.media}" alt="${project.titulo}">
                                     </div>
                                 `;
                         }
 
+                        // Estructura HTML del proyecto
                         projectDiv.innerHTML = `
                                 ${mediaContent}
                                 <div class="project-info">
