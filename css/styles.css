@@ -70,16 +70,31 @@ body {
         flex-direction: row-reverse; /* Alterna el orden en los proyectos pares */
     }
 
+/* Estilo para videos de YouTube dentro de un iframe */
+.youtube-video {
+    width: 100%; /* Asegura que el iframe se ajuste al contenedor */
+    max-width: 560px; /* Limita el ancho máximo */
+    height: 315px; /* Altura fija */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    object-fit: cover; /* Asegura que el contenido se ajuste correctamente */
+}
+
+
 .project-video {
     flex: 1;
     padding: 20px;
     max-width: 50%;
 }
 
-    .project-video video {
+    /* Opcional: Si quieres que todos los videos tengan un estilo consistente */
+    .project-video video,
+    .project-video iframe {
         width: 100%;
-        border-radius: 8px;
-        aspect-ratio: 16/9;
+        max-width: 560px; /* Limitar ancho máximo */
+        height: 315px;
+        border-radius: 10px; /* Esquinas redondeadas */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     }
 
 .project-info {
