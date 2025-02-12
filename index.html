@@ -45,38 +45,41 @@
                         }
 
                         // Mostrar el contenido según el tipo (link, video o imagen)
-                        let mediaContent;
-                        if (project.tipo === "link") {
+                        let mediaContent = '';
+                        if (project.link) {
+                            // Si existe un link (como un video de YouTube)
                             mediaContent = `
-                                <div class="project-link">
-                                    <iframe width="560" height="315" src="${project.media}" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            `;
-                        } else if (project.tipo === "video") {
+                                    <div class="project-video">
+                                        <iframe width="560" height="315" src="${project.link}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                `;
+                        } else if (project.video) {
+                            // Si existe un archivo de video
                             mediaContent = `
-                                <div class="project-video">
-                                    <video controls>
-                                        <source src="${project.media}" type="video/mp4">
-                                        Tu navegador no soporta videos HTML5.
-                                    </video>
-                                </div>
-                            `;
-                        } else if (project.tipo === "imagen") {
+                                    <div class="project-video">
+                                        <video controls>
+                                            <source src="${project.video}" type="video/mp4">
+                                            Tu navegador no soporta videos HTML5.
+                                        </video>
+                                    </div>
+                                `;
+                        } else if (project.imagen) {
+                            // Si no hay link ni video, mostrar una imagen
                             mediaContent = `
-                                <div class="project-image">
-                                    <img src="${project.media}" alt="${project.titulo}">
-                                </div>
-                            `;
+                                    <div class="project-image">
+                                        <img src="${project.imagen}" alt="${project.titulo}">
+                                    </div>
+                                `;
                         }
 
                         projectDiv.innerHTML = `
-                            ${mediaContent}
-                            <div class="project-info">
-                                <h2>${project.titulo}</h2>
-                                <p>${project.descripcion}</p>
-                                <a href="${project.link}">Leer más</a>
-                            </div>
-                        `;
+                                ${mediaContent}
+                                <div class="project-info">
+                                    <h2>${project.titulo}</h2>
+                                    <p>${project.descripcion}</p>
+                                    <a href="${project.link}">Leer más</a>
+                                </div>
+                            `;
                         container.appendChild(projectDiv);
                     }
                 });
