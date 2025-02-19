@@ -77,7 +77,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     object-fit: cover;
-    border: 2px solid orange;
 }
 
 
@@ -85,7 +84,6 @@ body {
     flex: 1;
     padding: 20px;
     max-width: 50%;
-    border: 2px solid orange;
 }
 
     .project-video video,
@@ -94,7 +92,6 @@ body {
         height: 315px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid orange;
     }
 
 .project-info {
@@ -128,7 +125,7 @@ body {
 
 /* Navegación */
 nav {
-    background-color: #333;
+    background-color: #641dd82c;
     padding: 10px;
     text-align: center;
     margin-bottom: 40px; /* Aumenta el espacio entre la barra de navegación y el contenido */
