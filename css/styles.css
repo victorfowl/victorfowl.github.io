@@ -125,7 +125,7 @@ body {
 
 /* Navegación */
 nav {
-    background-color: #641dd82c;
+    background-color: #8f9cff30;
     padding: 10px;
     text-align: center;
     margin-bottom: 40px; /* Aumenta el espacio entre la barra de navegación y el contenido */
@@ -139,6 +139,7 @@ nav {
 
         nav a:hover {
             text-decoration: underline;
+            background-color: #ffa50030;
         }
 
 /* Cabeceras */
