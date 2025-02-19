@@ -125,7 +125,7 @@ body {
 
 /* Navegación */
 nav {
-    background-color: #8f9cff50;
+    background-color: #8f9cff30;
     padding: 10px;
     text-align: center;
     min-height: 30px;
@@ -140,7 +140,7 @@ nav {
     }
 
         nav a:hover {
-            background-color: #ffa50050;
+            background-color: #ffa50030;
         }
 
 /* Cabeceras */
