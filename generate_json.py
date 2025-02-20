@@ -31,7 +31,11 @@ try:
 
                         # Si la línea comienza con #, es una nueva sección
                         if linea.startswith("#"):
+                            # Eliminar el espacio después del # (si lo hay)
                             seccion = linea[1:].strip()
+
+                            # Depuración: mostrar la sección que estamos procesando
+                            print(f"Procesando sección: {seccion}")
 
                             # Determinar la sección actual basada en la línea
                             if "DescripcionCorta" in seccion:
