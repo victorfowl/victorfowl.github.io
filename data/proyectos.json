@@ -14,7 +14,9 @@
             "Unity"
         ],
         "tipo": "link",
-        "media": "h",
-        "videos": "https://www.youtube.com/embed/bAwn30euRgY"
+        "media": "https://www.youtube.com/embed/bAwn30euRgY https://www.youtube.com/embed/H1Vrr0rDOu0 https://www.youtube.com/embed/qPzW_lDv82o",
+        "videos": [
+            "https://www.youtube.com/embed/bAwn30euRgY https://www.youtube.com/embed/H1Vrr0rDOu0 https://www.youtube.com/embed/qPzW_lDv82o"
+        ]
     }
 ]
