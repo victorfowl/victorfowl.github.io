@@ -47,19 +47,29 @@
 
                         // Mostrar video o imagen de thumbnail
                         let mediaContent = '';
-                        if (project.tipo === 'link') {
-                            mediaContent = `<iframe width="560" height="315" src="${project.media}" frameborder="0" allowfullscreen></iframe>`;
-                        } else if (project.tipo === 'video') {
+                        if (project.tipo === 'link' && esLinkYoutube(project.media)) {
                             mediaContent = `
-                                    <div class="project-video">
-                                        <video controls poster="${project.media.replace('video.mp4', 'thumbnail.png')}">
-                                            <source src="${project.media}" type="video/mp4">
-                                            Tu navegador no soporta videos HTML5.
-                                        </video>
-                                    </div>
-                                `;
+                            <div class="project-video">
+                               <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        `;
+                        } else if (project.tipo === 'video') {
+                            // Mostrar video local
+                            mediaContent = `
+                            <div class="project-video">
+                                <video controls>
+                                    <source src="${project.media}" type="video/mp4">
+                                    Tu navegador no soporta videos HTML5.
+                                </video>
+                            </div>
+                        `;
                         } else if (project.tipo === 'imagen') {
-                            mediaContent = `<img src="${project.media}" alt="${project.titulo}">`;
+                            // Mostrar imagen si no hay video
+                            mediaContent = `
+                            <div class="project-image">
+                                <img src="${project.media}" alt="${project.titulo}">
+                            </div>
+                        `;
                         }
 
                         // Agregar contenido del proyecto
