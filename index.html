@@ -8,7 +8,7 @@
     <link rel="icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <!-- El contenido de tu página -->
+    <!-- Contenido principal de la página -->
     <div id="content" style="display: none;">
         <!-- Barra de navegación -->
         <nav>
@@ -28,75 +28,62 @@
     </div>
 
     <script>
-        // Función para determinar si el link es de YouTube
-        function esLinkYoutube(link) {
-            return link.includes("youtube.com") || link.includes("youtu.be");
+        // Función para ocultar el loader y mostrar el contenido
+        function showContent() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
         }
 
-        // Cargar proyectos desde el archivo JSON con un timestamp para evitar cache
+        // Cargar proyectos desde el JSON y mostrarlos en la página
         fetch('data/proyectos.json?' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('projects-container');
                 data.forEach((project, index) => {
-                    // Verificar si el proyecto tiene la etiqueta 'home'
                     if (project.etiquetas && project.etiquetas.includes('home')) {
                         const projectDiv = document.createElement('div');
                         projectDiv.classList.add('project');
-                        if (index % 2 === 0) {
-                            projectDiv.classList.add('odd');
-                        } else {
-                            projectDiv.classList.add('even');
-                        }
+                        projectDiv.classList.add(index % 2 === 0 ? 'odd' : 'even');
 
-                        // Mostrar el contenido según el tipo (link, video o imagen)
+                        // Mostrar video o imagen de thumbnail
                         let mediaContent = '';
-                        if (project.tipo === 'link' && esLinkYoutube(project.media)) {
-                            // Insertar el video de YouTube en el iframe
-                            mediaContent = `
-                                    <div class="project-video">
-                                       <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                `;
+                        if (project.tipo === 'link') {
+                            mediaContent = `<iframe width="560" height="315" src="${project.media}" frameborder="0" allowfullscreen></iframe>`;
                         } else if (project.tipo === 'video') {
-                            // Mostrar video local
                             mediaContent = `
                                     <div class="project-video">
-                                        <video controls>
+                                        <video controls poster="${project.media.replace('video.mp4', 'thumbnail.png')}">
                                             <source src="${project.media}" type="video/mp4">
                                             Tu navegador no soporta videos HTML5.
                                         </video>
                                     </div>
                                 `;
                         } else if (project.tipo === 'imagen') {
-                            // Mostrar imagen si no hay video
-                            mediaContent = `
-                                    <div class="project-image">
-                                        <img src="${project.media}" alt="${project.titulo}">
-                                    </div>
-                                `;
+                            mediaContent = `<img src="${project.media}" alt="${project.titulo}">`;
                         }
 
-                        // Estructura HTML del proyecto
+                        // Agregar contenido del proyecto
                         projectDiv.innerHTML = `
                                 ${mediaContent}
                                 <div class="project-info">
                                     <h2>${project.titulo}</h2>
-                                    <p>${project.descripcion}</p>
-                                    <a href="${project.link}">Leer más</a>
+                                    <p>${project.descripcion_corta}</p>
+                                    <p><strong>Empresa:</strong> ${project.empresa}</p>
+                                    <p><strong>Plataformas:</strong> ${project.plataformas}</p>
+                                    <p><strong>Aportación:</strong> ${project.aportacion}</p>
+                                    <a href="project.html?project=${encodeURIComponent(project.titulo)}">Leer más</a>
                                 </div>
                             `;
                         container.appendChild(projectDiv);
                     }
                 });
+                // Mostrar el contenido una vez cargado
+                showContent();
+            })
+            .catch(error => {
+                console.error('Error cargando los proyectos:', error);
+                showContent();  // Asegurarse de mostrar el contenido incluso si hay un error
             });
-
-        // Ocultar la pantalla de carga y mostrar el contenido cuando todo esté listo
-        window.addEventListener('load', function () {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-        });
     </script>
-
 </body>
 </html>

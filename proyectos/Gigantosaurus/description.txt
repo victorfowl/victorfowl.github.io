@@ -1,6 +1,20 @@
+# Descripción corta
 Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.
 
-#home
-#Featured
+# Descripción larga
+En este proyecto, me encargué de desarrollar el backend usando Node.js y Express, así como la integración con una base de datos MySQL. En el frontend, se utilizó React para crear una interfaz dinámica y responsiva.
 
-URL: https://www.youtube.com/embed/bAwn30euRgY
+# Empresa
+WildSphere
+
+# Plataformas
+PlayStation4, Móvil
+
+# Aportación
+Desarrollo backend, integración con base de datos, optimización de rendimiento.
+
+# Etiquetas
+home, PlayStation, Unreal, Unity
+
+# Enlaces de video
+https://www.youtube.com/embed/bAwn30euRgY
