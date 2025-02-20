@@ -6,6 +6,73 @@
     <title>Portfolio - Proyecto</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+            nav a {
+                color: white;
+                margin: 0 10px;
+                text-decoration: none;
+            }
+
+        #project-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .project-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-video, .project-info {
+            flex: 1;
+            margin: 10px;
+        }
+
+            .project-video iframe, .project-video video {
+                width: 100%;
+                height: auto;
+            }
+
+        .project-info {
+            padding-left: 20px;
+        }
+
+        .additional-videos {
+            margin-top: 20px;
+        }
+
+        .image-slider {
+            margin-top: 30px;
+        }
+
+            .image-slider img {
+                width: 100%;
+                height: auto;
+            }
+    </style>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -23,54 +90,68 @@
         // Obtener el título del proyecto desde los parámetros de la URL
         const pathArray = window.location.pathname.split('/');
         const projectName = pathArray[pathArray.length - 2]; // Obtiene el penúltimo segmento de la URL, que es el nombre del proyecto
-        console.log(projectName);
+
         // Función para mostrar detalles del proyecto
         function displayProjectDetails(project) {
             const container = document.getElementById('project-container');
             const projectDiv = document.createElement('div');
             projectDiv.classList.add('project-details');
 
-            // Mostrar video o imagen de thumbnail
+            // Título centrado
+            const projectTitle = `<h1 class="project-title">${project.titulo}</h1>`;
+
+            // Mostrar el video principal o los videos adicionales con control para pasar entre videos
             let mediaContent = '';
             if (project.tipo === 'link') {
-                mediaContent = `<iframe width="560" height="315" src="${project.media}" frameborder="0" allowfullscreen></iframe>`;
-            } else if (project.tipo === 'video') {
+                mediaContent = `<iframe src="${project.media}" frameborder="0" allowfullscreen></iframe>`;
+            } else if (project.tipo === 'video' && project.enlaces_youtube.length > 0) {
                 mediaContent = `
-                    <div class="project-video">
-                        <video controls poster="${project.media.replace('video.mp4', 'thumbnail.png')}">
-                            <source src="${project.media}" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
-                        </video>
-                    </div>
-                `;
+                        <div class="project-video">
+                            <video id="mainVideo" controls poster="${project.media.replace('video.mp4', 'thumbnail.png')}">
+                                <source src="${project.media}" type="video/mp4">
+                                Tu navegador no soporta videos HTML5.
+                            </video>
+                        </div>
+                        <div class="additional-videos">
+                            <button onclick="changeVideo('${project.enlaces_youtube[0]}')">Video 1</button>
+                            <button onclick="changeVideo('${project.enlaces_youtube[1]}')">Video 2</button>
+                        </div>
+                    `;
             } else if (project.tipo === 'imagen') {
                 mediaContent = `<img src="${project.media}" alt="${project.titulo}">`;
             }
 
-            // Mostrar los enlaces adicionales a videos si los hay
-            let additionalVideos = '';
-            if (project.enlaces_youtube && project.enlaces_youtube.length > 1) {
-                additionalVideos = '<div class="additional-videos"><h3>Más videos:</h3><ul>';
-                project.enlaces_youtube.slice(1).forEach(video => {
-                    additionalVideos += `<li><a href="${video}" target="_blank">${video}</a></li>`;
+            // Información del proyecto
+            const projectInfo = `
+                    <div class="project-info">
+                        <p><strong>Descripción:</strong> ${project.descripcion_larga}</p>
+                        <p><strong>Empresa:</strong> ${project.empresa}</p>
+                        <p><strong>Plataformas:</strong> ${project.plataformas}</p>
+                        <p><strong>Aportación:</strong> ${project.aportacion}</p>
+                        <p><strong>Etiquetas:</strong> ${project.etiquetas.join(', ')}</p>
+                    </div>
+                `;
+
+            // Visor de imágenes al final
+            let imageSlider = '';
+            if (project.imagenes && project.imagenes.length > 0) {
+                imageSlider = '<div class="image-slider">';
+                project.imagenes.forEach((image) => {
+                    imageSlider += `<img src="${image}" alt="Imagen del proyecto">`;
                 });
-                additionalVideos += '</ul></div>';
+                imageSlider += '</div>';
             }
 
-            // Agregar contenido del proyecto
-            projectDiv.innerHTML = `
-                ${mediaContent}
-                <div class="project-info">
-                    <h1>${project.titulo}</h1>
-                    <p><strong>Descripción:</strong> ${project.descripcion_larga}</p>
-                    <p><strong>Empresa:</strong> ${project.empresa}</p>
-                    <p><strong>Plataformas:</strong> ${project.plataformas}</p>
-                    <p><strong>Aportación:</strong> ${project.aportacion}</p>
-                    <p><strong>Etiquetas:</strong> ${project.etiquetas.join(', ')}</p>
-                    ${additionalVideos}
-                </div>
-            `;
+            // Insertar contenido en la página
+            projectDiv.innerHTML = `${projectTitle}<div class="project-details">${mediaContent}${projectInfo}</div>${imageSlider}`;
             container.appendChild(projectDiv);
+        }
+
+        // Función para cambiar el video cuando se selecciona otro
+        function changeVideo(videoUrl) {
+            const mainVideo = document.getElementById('mainVideo');
+            mainVideo.src = videoUrl;
+            mainVideo.play();
         }
 
         // Cargar el archivo JSON de proyectos y mostrar el proyecto actual
@@ -89,6 +170,5 @@
                 document.getElementById('project-container').innerHTML = '<p>Error al cargar el proyecto.</p>';
             });
     </script>
-
 </body>
 </html>
