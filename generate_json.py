@@ -29,15 +29,15 @@ try:
                         linea = linea.strip()
                         if linea.startswith("#"):
                             etiquetas.append(linea[1:].lower())  # Guardar etiquetas en minúsculas
-                        elif "Descripción corta" in linea:
+                        elif "Descripcion corta" in linea:
                             seccion_actual = "corta"
-                        elif "Descripción larga" in linea:
+                        elif "Descripcion larga" in linea:
                             seccion_actual = "larga"
                         elif "Empresa" in linea:
                             seccion_actual = "empresa"
                         elif "Plataformas" in linea:
                             seccion_actual = "plataformas"
-                        elif "Aportación" in linea:
+                        elif "aportacion" in linea:
                             seccion_actual = "aportacion"
                         elif "Enlaces de video" in linea:
                             seccion_actual = "video"
