@@ -63,11 +63,20 @@ body {
     justify-content: space-between;
 }
 
-.project-video, .project-info {
+.project-video {
     display: inline-block;
-    vertical-align: top;
-    width: 45%;
+    vertical-align: middle;
+    width: 48%;
     flex: 1;
+    float: left;
+}
+
+.project-info {
+    display: inline-block;
+    vertical-align: middle;
+    width: 48%;
+    flex: 1;
+    float: right;
 }
 
     .project-video iframe, .project-video video {
