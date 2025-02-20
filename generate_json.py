@@ -34,46 +34,45 @@ try:
                             print(f"Procesando seccion: {seccion}")
 
                             if "DescripcionCorta" in seccion:
-                                print(f"DescripcionCorta")
+                                seccion_actual = "descripcion corta"
                                 if seccion_actual == "descripcion corta":
                                     descripcion_corta = acumulador.strip()
-                                seccion_actual = "descripcion corta"
                             elif "DescripcionLarga" in seccion:
+                                seccion_actual = "descripcion larga"
                                 if seccion_actual == "descripcion larga":
                                     descripcion_larga = acumulador.strip()
-                                seccion_actual = "descripcion larga"
                             elif "Empresa" in seccion:
+                                seccion_actual = "empresa"
                                 if seccion_actual == "empresa":
                                     empresa = acumulador.strip()
-                                seccion_actual = "empresa"
                             elif "Plataformas" in seccion:
+                                seccion_actual = "plataformas"
                                 if seccion_actual == "plataformas":
                                     plataformas = acumulador.strip()
-                                seccion_actual = "plataformas"
                             elif "Aportacion" in seccion:
+                                seccion_actual = "aportacion"
                                 if seccion_actual == "aportacion":
                                     aportacion = acumulador.strip()
-                                seccion_actual = "aportacion"
                             elif "Etiquetas" in seccion:
+                                seccion_actual = "etiquetas"
                                 if seccion_actual == "etiquetas":
                                     etiquetas = acumulador.strip().split(",")
-                                seccion_actual = "etiquetas"
 
                             acumulador = ""  
                         
                         else:
                             acumulador += linea + " "
 
-                    if seccion_actual == "descripcion corta":
-                        descripcion_corta = acumulador.strip()
-                    elif seccion_actual == "descripcion larga":
-                        descripcion_larga = acumulador.strip()
-                    elif seccion_actual == "empresa":
-                        empresa = acumulador.strip()
-                    elif seccion_actual == "plataformas":
-                        plataformas = acumulador.strip()
-                    elif seccion_actual == "aportacion":
-                        aportacion = acumulador.strip()
+                            if seccion_actual == "descripcion corta":
+                                descripcion_corta = acumulador.strip()
+                            elif seccion_actual == "descripcion larga":
+                                descripcion_larga = acumulador.strip()
+                            elif seccion_actual == "empresa":
+                                empresa = acumulador.strip()
+                            elif seccion_actual == "plataformas":
+                                plataformas = acumulador.strip()
+                            elif seccion_actual == "aportacion":
+                                aportacion = acumulador.strip()
 
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
