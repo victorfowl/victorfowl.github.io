@@ -73,6 +73,8 @@ try:
                                 plataformas = acumulador.strip()
                             elif seccion_actual == "aportacion":
                                 aportacion = acumulador.strip()
+                            elif seccion_actual == "etiquetas":
+                                aportacion = acumulador.strip()
 
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
