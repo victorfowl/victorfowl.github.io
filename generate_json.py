@@ -22,7 +22,7 @@ try:
             etiquetas = []
 
             if os.path.exists(proyecto_txt):
-                with open(proyecto_txt, 'r', encoding='ISO-8859-1', errors='replace') as f_txt:
+                with open(proyecto_txt, 'r', encoding='ISO-8859-1') as f_txt:
                     seccion_actual = None
                     acumulador = "" 
                     for linea in f_txt:
