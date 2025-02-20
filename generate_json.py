@@ -31,18 +31,7 @@ try:
 
                         # Si la línea comienza con #, es una nueva sección
                         if linea.startswith("#"):
-                            if seccion_actual == "descripcion corta":
-                                descripcion_corta = acumulador.strip()
-                            elif seccion_actual == "descripcion larga":
-                                descripcion_larga = acumulador.strip()
-                            elif seccion_actual == "empresa":
-                                empresa = acumulador.strip()
-                            elif seccion_actual == "plataformas":
-                                plataformas = acumulador.strip()
-                            elif seccion_actual == "aportacion":
-                                aportacion = acumulador.strip()
-                            acumulador = ""  # Reiniciar acumulador para la nueva sección
-
+                        
                             # Determinar la sección actual basada en la línea
                             if "Descripcion corta" in linea.lower():
                                 seccion_actual = "descripcion corta"
@@ -56,6 +45,18 @@ try:
                                 seccion_actual = "aportacion"
                             elif "Etiquetas" in linea.lower():
                                 seccion_actual = "etiquetas"
+
+                            if seccion_actual == "descripcion corta":
+                                descripcion_corta = acumulador.strip()
+                            elif seccion_actual == "descripcion larga":
+                                descripcion_larga = acumulador.strip()
+                            elif seccion_actual == "empresa":
+                                empresa = acumulador.strip()
+                            elif seccion_actual == "plataformas":
+                                plataformas = acumulador.strip()
+                            elif seccion_actual == "aportacion":
+                                aportacion = acumulador.strip()
+                            acumulador = ""  # Reiniciar acumulador para la nueva sección
                         
                         # Acumular las líneas que pertenecen a la sección actual
                         else:
