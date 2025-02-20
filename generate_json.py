@@ -64,7 +64,7 @@ try:
                             elif seccion_actual == "aportacion":
                                 aportacion = acumulador.strip()
                             elif seccion_actual == "etiquetas":
-                                etiquetas = acumulador.strip.Split(",")
+                                etiquetas = acumulador.strip().Split(",")
                             elif seccion_actual == "enlacesdevideo":
                                 link_videos = acumulador.strip()
 
