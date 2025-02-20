@@ -2,11 +2,11 @@
     {
         "titulo": "Gigantosaurus",
         "link": "proyectos/Gigantosaurus/index.html",
-        "descripcion_corta": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverÃ¡n acertijos y superarÃ¡n situaciones para avanzar al siguiente nivel.",
-        "descripcion_larga": "En este proyecto, me encarguÃ© de desarrollar el backend usando Node.js y Express, asÃ­ como la integraciÃ³n con una base de datos MySQL. En el frontend, se utilizÃ³ React para crear una interfaz dinÃ¡mica y responsiva.",
+        "descripcion_corta": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.",
+        "descripcion_larga": "En este proyecto, me encargué de desarrollar el backend usando Node.js y Express, así como la integración con una base de datos MySQL. En el frontend, se utilizó React para crear una interfaz dinámica y responsiva.",
         "empresa": "WildSphere",
-        "plataformas": "PlayStation4, MÃ³vil",
-        "aportacion": "Desarrollo backend, integraciÃ³n con base de datos, optimizaciÃ³n de rendimiento.",
+        "plataformas": "PlayStation4, Móvil",
+        "aportacion": "Desarrollo backend, integración con base de datos, optimización de rendimiento.",
         "etiquetas": [
             "home",
             "PlayStation",
