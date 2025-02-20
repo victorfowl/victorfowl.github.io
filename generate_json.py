@@ -66,7 +66,7 @@ try:
                             elif seccion_actual == "etiquetas":
                                 etiquetas = acumulador.strip().split(",")
                             elif seccion_actual == "enlacesdevideo":
-                                link_videos = acumulador.strip().split(",")
+                                link_videos = acumulador.strip().split()
 
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
