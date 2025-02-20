@@ -21,8 +21,8 @@
 
     <script>
         // Obtener el título del proyecto desde los parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectName = urlParams.get('project');
+        const pathArray = window.location.pathname.split('/');
+        const projectName = pathArray[pathArray.length - 2]; // Obtiene el penúltimo segmento de la URL, que es el nombre del proyecto
         console.log(projectName);
         // Función para mostrar detalles del proyecto
         function displayProjectDetails(project) {
