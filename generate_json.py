@@ -48,13 +48,13 @@ try:
                                 seccion_actual = "descripcion corta"
                             elif "Descripcion larga" in linea.lower():
                                 seccion_actual = "descripcion larga"
-                            elif "empresa" in linea.lower():
+                            elif "Empresa" in linea.lower():
                                 seccion_actual = "empresa"
-                            elif "plataformas" in linea.lower():
+                            elif "Plataformas" in linea.lower():
                                 seccion_actual = "plataformas"
-                            elif "aportacion" in linea.lower():
+                            elif "Aportacion" in linea.lower():
                                 seccion_actual = "aportacion"
-                            elif "etiquetas" in linea.lower():
+                            elif "Etiquetas" in linea.lower():
                                 seccion_actual = "etiquetas"
                         
                         # Acumular las líneas que pertenecen a la sección actual
