@@ -35,8 +35,10 @@
 
         // Cargar proyectos desde el archivo JSON con un timestamp para evitar cache
         fetch('data/proyectos.json?' + new Date().getTime())
+
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 const container = document.getElementById('projects-container');
                 data.forEach((project, index) => {
                     // Verificar si el proyecto tiene la etiqueta 'home'
@@ -53,6 +55,7 @@
                         let mediaContent = '';
                         if (project.tipo === 'link' && esLinkYoutube(project.media)) {
                             // Insertar el video de YouTube en el iframe
+                            console.log("lalala");
                             mediaContent = `
                                     <div class="project-video">
                                        <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
