@@ -1,3 +1,0 @@
-In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.
-
-#home
