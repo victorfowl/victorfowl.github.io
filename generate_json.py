@@ -66,7 +66,7 @@ try:
                             elif seccion_actual == "etiquetas":
                                 etiquetas = acumulador.strip().split(",")
                             elif seccion_actual == "enlacesdevideo":
-                                link_videos = acumulador.strip()
+                                link_videos = acumulador.strip().split(",")
 
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
@@ -82,6 +82,8 @@ try:
                         proyecto_imagen = os.path.join(path_carpeta, archivo)
                         break
 
+            tipo_media = 'link' if link_videos else 'imagen' if proyecto_imagen else 'otro'
+
             proyecto = {
                 'titulo': carpeta,
                 'link': proyecto_html,
@@ -91,7 +93,7 @@ try:
                 'plataformas': plataformas,
                 'aportacion': aportacion,
                 'etiquetas': [etiqueta.strip() for etiqueta in etiquetas],  # Limpiar etiquetas
-                'tipo': 'link' if link_videos else 'video' if link_videos else 'imagen',
+                'tipo': tipo_media,
                 'media': link_videos[0] if link_videos else proyecto_imagen,
                 'videos': link_videos
             }
