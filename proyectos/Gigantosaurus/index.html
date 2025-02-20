@@ -31,11 +31,15 @@
         }
 
         .project-details {
-            display: flex;
+            display: block;
             justify-content: space-between;
         }
 
         .project-video, .project-info {
+            display: inline-block;
+            vertical-align: top;
+            width: 48%; /* Asegura que ocupen aproximadamente la mitad del ancho */
+            margin: 10px;
             flex: 1;
             margin: 10px;
         }
@@ -132,7 +136,13 @@
             }
 
             // Insertar contenido en la página
-            projectDiv.innerHTML = `${projectTitle}<div class="project-details">${mediaContent}${projectInfo}</div>${imageSlider}`;
+            projectDiv.innerHTML = `
+                ${projectTitle} <!-- El título sigue fuera del div de los detalles -->
+                <div class="project-details">
+                    ${mediaContent}${projectInfo}
+                </div>
+                ${imageSlider}
+            `;
             container.appendChild(projectDiv);
         }
 
