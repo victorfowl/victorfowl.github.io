@@ -21,39 +21,57 @@ try:
             plataformas = ""
             aportacion = ""
             etiquetas = []
-            
+
             if os.path.exists(proyecto_txt):
                 with open(proyecto_txt, 'r', encoding='utf-8') as f_txt:
                     seccion_actual = None
+                    acumulador = ""  # Acumula líneas hasta encontrar la siguiente sección
                     for linea in f_txt:
                         linea = linea.strip()
+
+                        # Si la línea comienza con #, es una nueva sección
                         if linea.startswith("#"):
-                            etiquetas.append(linea[1:].lower())  # Guardar etiquetas en minúsculas
-                        elif "Descripcion corta" in linea:
-                            seccion_actual = "corta"
-                        elif "Descripcion larga" in linea:
-                            seccion_actual = "larga"
-                        elif "Empresa" in linea:
-                            seccion_actual = "empresa"
-                        elif "Plataformas" in linea:
-                            seccion_actual = "plataformas"
-                        elif "aportacion" in linea:
-                            seccion_actual = "aportacion"
-                        elif "Enlaces de video" in linea:
-                            seccion_actual = "video"
-                        else:
-                            if seccion_actual == "corta":
-                                descripcion_corta += linea + " "
-                            elif seccion_actual == "larga":
-                                descripcion_larga += linea + " "
+                            if seccion_actual == "descripcion corta":
+                                descripcion_corta = acumulador.strip()
+                            elif seccion_actual == "descripcion larga":
+                                descripcion_larga = acumulador.strip()
                             elif seccion_actual == "empresa":
-                                empresa = linea
+                                empresa = acumulador.strip()
                             elif seccion_actual == "plataformas":
-                                plataformas = linea
+                                plataformas = acumulador.strip()
                             elif seccion_actual == "aportacion":
-                                aportacion = linea
-                            elif seccion_actual == "video":
-                                link_videos.append(linea)  # Agregar todos los enlaces de video
+                                aportacion = acumulador.strip()
+                            acumulador = ""  # Reiniciar acumulador para la nueva sección
+
+                            # Determinar la sección actual basada en la línea
+                            if "Descripcion corta" in linea.lower():
+                                seccion_actual = "descripcion corta"
+                            elif "Descripcion larga" in linea.lower():
+                                seccion_actual = "descripcion larga"
+                            elif "empresa" in linea.lower():
+                                seccion_actual = "empresa"
+                            elif "plataformas" in linea.lower():
+                                seccion_actual = "plataformas"
+                            elif "aportacion" in linea.lower():
+                                seccion_actual = "aportacion"
+                            elif "etiquetas" in linea.lower():
+                                seccion_actual = "etiquetas"
+                        
+                        # Acumular las líneas que pertenecen a la sección actual
+                        else:
+                            acumulador += linea + " "
+
+                    # Guardar la última sección al llegar al final del archivo
+                    if seccion_actual == "descripcion corta":
+                        descripcion_corta = acumulador.strip()
+                    elif seccion_actual == "descripcion larga":
+                        descripcion_larga = acumulador.strip()
+                    elif seccion_actual == "empresa":
+                        empresa = acumulador.strip()
+                    elif seccion_actual == "plataformas":
+                        plataformas = acumulador.strip()
+                    elif seccion_actual == "aportacion":
+                        aportacion = acumulador.strip()
 
             # Si no hay un link de video en la descripción, buscar un video en la carpeta
             if not link_videos:
