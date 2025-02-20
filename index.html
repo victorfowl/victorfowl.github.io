@@ -35,7 +35,6 @@
 
         // Cargar proyectos desde el archivo JSON con un timestamp para evitar cache
         fetch('data/proyectos.json?' + new Date().getTime())
-
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -55,42 +54,44 @@
                         let mediaContent = '';
                         if (project.tipo === 'link' && esLinkYoutube(project.media)) {
                             // Insertar el video de YouTube en el iframe
-                            console.log("lalala");
                             mediaContent = `
-                                    <div class="project-video">
-                                       <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                `;
+                        <div class="project-video">
+                           <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    `;
                         } else if (project.tipo === 'video') {
                             // Mostrar video local
                             mediaContent = `
-                                    <div class="project-video">
-                                        <video controls>
-                                            <source src="${project.media}" type="video/mp4">
-                                            Tu navegador no soporta videos HTML5.
-                                        </video>
-                                    </div>
-                                `;
+                        <div class="project-video">
+                            <video controls>
+                                <source src="${project.media}" type="video/mp4">
+                                Tu navegador no soporta videos HTML5.
+                            </video>
+                        </div>
+                    `;
                         } else if (project.tipo === 'imagen') {
                             // Mostrar imagen si no hay video
                             mediaContent = `
-                                    <div class="project-image">
-                                        <img src="${project.media}" alt="${project.titulo}">
-                                    </div>
-                                `;
+                        <div class="project-image">
+                            <img src="${project.media}" alt="${project.titulo}">
+                        </div>
+                    `;
                         }
 
                         projectDiv.innerHTML = `
-                            ${mediaContent}
-                            <div class="project-info">
-                                <h2>${project.titulo}</h2>
-                                <p>${project.descripcion_corta}</p>
-                                <p><strong>Empresa:</strong> ${project.empresa}</p>
-                                <p><strong>Plataformas:</strong> ${project.plataformas}</p>
-                                <p><strong>Aportación:</strong> ${project.aportacion}</p>
-                                <a href="project.html?project=${encodeURIComponent(project.titulo)}">Leer más</a>
-                            </div>
-                        `;
+                    ${mediaContent}
+                    <div class="project-info">
+                        <h2>${project.titulo}</h2>
+                        <p>${project.descripcion_corta}</p>
+                        <p><strong>Empresa:</strong> ${project.empresa}</p>
+                        <p><strong>Plataformas:</strong> ${project.plataformas}</p>
+                        <p><strong>Aportación:</strong> ${project.aportacion}</p>
+                        <a href="project.html?project=${encodeURIComponent(project.titulo)}">Leer más</a>
+                    </div>
+                `;
+
+                        // Asegúrate de agregar el projectDiv al contenedor
+                        container.appendChild(projectDiv);
                     }
                 });
             });
