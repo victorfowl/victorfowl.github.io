@@ -1,0 +1,112 @@
+/* Navegación */
+nav {
+    background-color: #4855b730;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+    nav a {
+        height: 50px;
+        color: white;
+        padding: 0 20px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    }
+
+        nav a:hover {
+            height: 100%;
+            background-color: orange;
+            color: black;
+        }
+
+/* Cabeceras */
+h1 {
+    color: white;
+}
+
+/* Estilo general */
+body {
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+}
+
+#project-container {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.project-details {
+    display: block;
+    justify-content: space-between;
+}
+
+.project-video, .project-info {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+    flex: 1;
+}
+
+    .project-video iframe, .project-video video {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 2px solid orange;
+    }
+
+/* Estilo para videos de YouTube dentro de un iframe */
+.youtube-video {
+    width: 100%;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    border: 2px solid orange;
+}
+
+.project-info {
+    flex: 1;
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    border: 2px solid orange;
+    background-color: transparent;
+    border-radius: 5px;
+    max-width: 50%;
+}
+
+.additional-videos {
+    margin-top: 20px;
+}
+
+.image-slider {
+    margin-top: 30px;
+}
+
+    .image-slider img {
+        width: 100%;
+        height: auto;
+    }
