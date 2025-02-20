@@ -7,9 +7,7 @@
         "empresa": "",
         "plataformas": "",
         "aportacion": "",
-        "etiquetas": [
-            "home"
-        ],
+        "etiquetas": [],
         "tipo": "link",
         "media": "proyectos/Tu Cara Me Suena/video.mp4",
         "videos": [
@@ -21,18 +19,10 @@
         "link": "proyectos/Gigantosaurus/index.html",
         "descripcion_corta": "",
         "descripcion_larga": "",
-        "empresa": "",
-        "plataformas": "",
-        "aportacion": "",
-        "etiquetas": [
-            " descripcion corta",
-            " descripcion larga",
-            " empresa",
-            " plataformas",
-            " aportacion",
-            " etiquetas",
-            " enlaces de video"
-        ],
+        "empresa": "WildSphere",
+        "plataformas": "PlayStation4, Móvil",
+        "aportacion": "Desarrollo backend, integración con base de datos, optimización de rendimiento.",
+        "etiquetas": [],
         "tipo": "imagen",
         "media": null,
         "videos": []
@@ -45,9 +35,7 @@
         "empresa": "",
         "plataformas": "",
         "aportacion": "",
-        "etiquetas": [
-            "home"
-        ],
+        "etiquetas": [],
         "tipo": "link",
         "media": "proyectos/Maze of Gods/video.mp4",
         "videos": [
