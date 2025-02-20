@@ -88,7 +88,9 @@
             // Mostrar el video principal o los videos adicionales con control para pasar entre videos
             let mediaContent = '';
             if (project.tipo === 'link') {
-                mediaContent = `<iframe src="${project.media}" frameborder="0" allowfullscreen></iframe>`;
+                mediaContent = `<div class="project-video">
+                <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>`;
             } else if (project.tipo === 'video' && project.enlaces_youtube.length > 0) {
                 mediaContent = `
                         <div class="project-video">
