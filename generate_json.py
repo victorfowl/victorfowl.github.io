@@ -31,34 +31,24 @@ try:
                         if linea.startswith("#"):
                             seccion = linea[1:].strip()
 
-                            print(f"Procesando seccion: {seccion}")
+                            print(f"Procesando seccion: {seccion}")                            
+                            acumulador = ""
 
                             if "DescripcionCorta" in seccion:
                                 seccion_actual = "descripcion corta"
-                                if seccion_actual == "descripcion corta":
-                                    descripcion_corta = acumulador.strip()
                             elif "DescripcionLarga" in seccion:
                                 seccion_actual = "descripcion larga"
-                                if seccion_actual == "descripcion larga":
-                                    descripcion_larga = acumulador.strip()
                             elif "Empresa" in seccion:
                                 seccion_actual = "empresa"
-                                if seccion_actual == "empresa":
-                                    empresa = acumulador.strip()
                             elif "Plataformas" in seccion:
                                 seccion_actual = "plataformas"
-                                if seccion_actual == "plataformas":
-                                    plataformas = acumulador.strip()
                             elif "Aportacion" in seccion:
                                 seccion_actual = "aportacion"
-                                if seccion_actual == "aportacion":
-                                    aportacion = acumulador.strip()
                             elif "Etiquetas" in seccion:
                                 seccion_actual = "etiquetas"
-                                if seccion_actual == "etiquetas":
-                                    etiquetas = acumulador.strip().split(",")
-
-                            acumulador = ""  
+                            elif "EnlacesDeVideo" in seccion:
+                                seccion_actual = "enlacesdevideo"
+  
                         
                         else:
                             acumulador += linea + " "
@@ -74,7 +64,9 @@ try:
                             elif seccion_actual == "aportacion":
                                 aportacion = acumulador.strip()
                             elif seccion_actual == "etiquetas":
-                                aportacion = acumulador.strip()
+                                etiquetas = acumulador.strip.Split(",")
+                            elif seccion_actual == "enlacesdevideo":
+                                link_videos = acumulador.strip()
 
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
