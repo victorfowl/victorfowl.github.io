@@ -10,10 +10,10 @@
 <body>
     <!-- Barra de navegación -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="career.html">Professional Career</a>
-        <a href="about.html">About Me</a>
+        <a href="/index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/career.html">Professional Career</a>
+        <a href="/about.html">About Me</a>
     </nav>
 
     <!-- Contenedor del proyecto -->
@@ -23,7 +23,7 @@
         // Obtener el título del proyecto desde los parámetros de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const projectName = urlParams.get('project');
-
+        console.log(projectName);
         // Función para mostrar detalles del proyecto
         function displayProjectDetails(project) {
             const container = document.getElementById('project-container');
