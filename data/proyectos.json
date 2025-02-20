@@ -1,20 +1,5 @@
 [
     {
-        "titulo": "Tu Cara Me Suena",
-        "link": "proyectos/Tu Cara Me Suena/index.html",
-        "descripcion_corta": "",
-        "descripcion_larga": "",
-        "empresa": "",
-        "plataformas": "",
-        "aportacion": "",
-        "etiquetas": [],
-        "tipo": "link",
-        "media": "proyectos/Tu Cara Me Suena/video.mp4",
-        "videos": [
-            "proyectos/Tu Cara Me Suena/video.mp4"
-        ]
-    },
-    {
         "titulo": "Gigantosaurus",
         "link": "proyectos/Gigantosaurus/index.html",
         "descripcion_corta": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverÃ¡n acertijos y superarÃ¡n situaciones para avanzar al siguiente nivel.",
@@ -31,20 +16,5 @@
         "tipo": "link",
         "media": "h",
         "videos": "https://www.youtube.com/embed/bAwn30euRgY"
-    },
-    {
-        "titulo": "Maze of Gods",
-        "link": "proyectos/Maze of Gods/index.html",
-        "descripcion_corta": "",
-        "descripcion_larga": "",
-        "empresa": "",
-        "plataformas": "",
-        "aportacion": "",
-        "etiquetas": [],
-        "tipo": "link",
-        "media": "proyectos/Maze of Gods/video.mp4",
-        "videos": [
-            "proyectos/Maze of Gods/video.mp4"
-        ]
     }
 ]
