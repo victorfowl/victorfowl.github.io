@@ -38,7 +38,7 @@
             let mediaContent = '';
             if (project.tipo === 'link') {
                 mediaContent = `<div class="project-video">
-                <iframe class="youtube-video" width="560" height="315" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="youtube-video" src="${project.media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>`;
             } else if (project.tipo === 'video' && project.enlaces_youtube.length > 0) {
                 mediaContent = `
