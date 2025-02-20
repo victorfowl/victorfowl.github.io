@@ -69,6 +69,7 @@ body {
     width: 48%;
     flex: 1;
     float: left;
+    aspect-ratio: 16/9;
 }
 
 .project-info {
@@ -79,12 +80,13 @@ body {
     float: right;
 }
 
-    .project-video iframe, .project-video video {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid orange;
-    }
+.project-video iframe, .project-video video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid orange;
+    aspect-ratio: 16/9;
+}
 
 /* Estilo para videos de YouTube dentro de un iframe */
 .youtube-video {
