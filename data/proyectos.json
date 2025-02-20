@@ -2,32 +2,56 @@
     {
         "titulo": "Tu Cara Me Suena",
         "link": "proyectos/Tu Cara Me Suena/index.html",
-        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
+        "descripcion_corta": "",
+        "descripcion_larga": "",
+        "empresa": "",
+        "plataformas": "",
+        "aportacion": "",
         "etiquetas": [
             "home"
         ],
-        "tipo": "video",
-        "media": "proyectos/Tu Cara Me Suena/video.mp4"
+        "tipo": "link",
+        "media": "proyectos/Tu Cara Me Suena/video.mp4",
+        "videos": [
+            "proyectos/Tu Cara Me Suena/video.mp4"
+        ]
     },
     {
         "titulo": "Gigantosaurus",
         "link": "proyectos/Gigantosaurus/index.html",
-        "descripcion": "Gigantosaurus es un juego de carreras de plataformas en el que tomas el control de cuatro amigos: Rocky, Tiny, Mazu y Bill. Juntos resolverán acertijos y superarán situaciones para avanzar al siguiente nivel.",
+        "descripcion_corta": "",
+        "descripcion_larga": "",
+        "empresa": "",
+        "plataformas": "",
+        "aportacion": "",
         "etiquetas": [
-            "home",
-            "featured"
+            " descripcion corta",
+            " descripcion larga",
+            " empresa",
+            " plataformas",
+            " aportacion",
+            " etiquetas",
+            " enlaces de video"
         ],
-        "tipo": "link",
-        "media": "https://www.youtube.com/embed/bAwn30euRgY"
+        "tipo": "imagen",
+        "media": null,
+        "videos": []
     },
     {
         "titulo": "Maze of Gods",
         "link": "proyectos/Maze of Gods/index.html",
-        "descripcion": "In this project I developed the app for the phone to use it as a microphone and some of the features of the game. The studio were was created this game is WildSphere.",
+        "descripcion_corta": "",
+        "descripcion_larga": "",
+        "empresa": "",
+        "plataformas": "",
+        "aportacion": "",
         "etiquetas": [
             "home"
         ],
-        "tipo": "video",
-        "media": "proyectos/Maze of Gods/video.mp4"
+        "tipo": "link",
+        "media": "proyectos/Maze of Gods/video.mp4",
+        "videos": [
+            "proyectos/Maze of Gods/video.mp4"
+        ]
     }
 ]
