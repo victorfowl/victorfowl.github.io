@@ -14,7 +14,6 @@ try:
             proyecto_imagen = None
             link_videos = []
 
-            # Leer la descripción del archivo .txt
             descripcion_corta = ""
             descripcion_larga = ""
             empresa = ""
@@ -23,21 +22,17 @@ try:
             etiquetas = []
 
             if os.path.exists(proyecto_txt):
-                with open(proyecto_txt, 'r', encoding='ISO-8859-1', errors='ignore') as f_txt:
+                with open(proyecto_txt, 'r', encoding='ISO-8859-1', errors='replace') as f_txt:
                     seccion_actual = None
-                    acumulador = ""  # Acumula líneas hasta encontrar la siguiente sección
+                    acumulador = "" 
                     for linea in f_txt:
                         linea = linea.strip()
 
-                        # Si la línea comienza con #, es una nueva sección
                         if linea.startswith("#"):
-                            # Eliminar el espacio después del # (si lo hay)
                             seccion = linea[1:].strip()
 
-                            # Depuración: mostrar la sección que estamos procesando
-                            print(f"Procesando sección: {seccion}")
+                            print(f"Procesando seccion: {seccion}")
 
-                            # Determinar la sección actual basada en la línea
                             if "DescripcionCorta" in seccion:
                                 if seccion_actual == "descripcion corta":
                                     descripcion_corta = acumulador.strip()
@@ -60,17 +55,14 @@ try:
                                 seccion_actual = "aportacion"
                             elif "Etiquetas" in seccion:
                                 if seccion_actual == "etiquetas":
-                                    etiquetas = acumulador.strip().split(",")  # Se puede separar las etiquetas por coma
+                                    etiquetas = acumulador.strip().split(",")
                                 seccion_actual = "etiquetas"
 
-                            # Reiniciar el acumulador para la siguiente sección
                             acumulador = ""  
                         
-                        # Acumular las líneas que pertenecen a la sección actual
                         else:
                             acumulador += linea + " "
 
-                    # Guardar la última sección al llegar al final del archivo
                     if seccion_actual == "descripcion corta":
                         descripcion_corta = acumulador.strip()
                     elif seccion_actual == "descripcion larga":
@@ -82,7 +74,6 @@ try:
                     elif seccion_actual == "aportacion":
                         aportacion = acumulador.strip()
 
-            # Si no hay un link de video en la descripción, buscar un video en la carpeta
             if not link_videos:
                 video_formats = ['mp4', 'webm', 'ogg']
                 for formato in video_formats:
@@ -91,14 +82,12 @@ try:
                         link_videos.append(potential_video)
                         break
 
-            # Si no se encontró video, buscar una imagen
             if not link_videos:
                 for archivo in os.listdir(path_carpeta):
                     if archivo.endswith(('.png', '.jpg', '.jpeg', '.gif')):
                         proyecto_imagen = os.path.join(path_carpeta, archivo)
                         break
 
-            # Crear el proyecto con los datos correspondientes
             proyecto = {
                 'titulo': carpeta,
                 'link': proyecto_html,
@@ -110,11 +99,10 @@ try:
                 'etiquetas': [etiqueta.strip() for etiqueta in etiquetas],  # Limpiar etiquetas
                 'tipo': 'link' if link_videos else 'video' if link_videos else 'imagen',
                 'media': link_videos[0] if link_videos else proyecto_imagen,
-                'videos': link_videos  # Todos los enlaces de video
+                'videos': link_videos
             }
             proyectos.append(proyecto)
 
-    # Escribir el archivo JSON
     with open('data/proyectos.json', 'w', encoding='utf-8') as json_file:
         json.dump(proyectos, json_file, ensure_ascii=False, indent=4)
 
