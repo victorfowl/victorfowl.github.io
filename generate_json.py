@@ -34,6 +34,7 @@ try:
                             print(f"Procesando seccion: {seccion}")
 
                             if "DescripcionCorta" in seccion:
+                                print(f"DescripcionCorta")
                                 if seccion_actual == "descripcion corta":
                                     descripcion_corta = acumulador.strip()
                                 seccion_actual = "descripcion corta"
