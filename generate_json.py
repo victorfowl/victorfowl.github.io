@@ -31,32 +31,36 @@ try:
 
                         # Si la línea comienza con #, es una nueva sección
                         if linea.startswith("#"):
-                        
+                            seccion = linea[1:].strip()
+
                             # Determinar la sección actual basada en la línea
-                            if "Descripcion corta" in linea.lower():
+                            if "DescripcionCorta" in seccion:
+                                if seccion_actual == "descripcion corta":
+                                    descripcion_corta = acumulador.strip()
                                 seccion_actual = "descripcion corta"
-                            elif "Descripcion larga" in linea.lower():
+                            elif "DescripcionLarga" in seccion:
+                                if seccion_actual == "descripcion larga":
+                                    descripcion_larga = acumulador.strip()
                                 seccion_actual = "descripcion larga"
-                            elif "Empresa" in linea.lower():
+                            elif "Empresa" in seccion:
+                                if seccion_actual == "empresa":
+                                    empresa = acumulador.strip()
                                 seccion_actual = "empresa"
-                            elif "Plataformas" in linea.lower():
+                            elif "Plataformas" in seccion:
+                                if seccion_actual == "plataformas":
+                                    plataformas = acumulador.strip()
                                 seccion_actual = "plataformas"
-                            elif "Aportacion" in linea.lower():
+                            elif "Aportacion" in seccion:
+                                if seccion_actual == "aportacion":
+                                    aportacion = acumulador.strip()
                                 seccion_actual = "aportacion"
-                            elif "Etiquetas" in linea.lower():
+                            elif "Etiquetas" in seccion:
+                                if seccion_actual == "etiquetas":
+                                    etiquetas = acumulador.strip().split(",")  # Se puede separar las etiquetas por coma
                                 seccion_actual = "etiquetas"
 
-                            if seccion_actual == "descripcion corta":
-                                descripcion_corta = acumulador.strip()
-                            elif seccion_actual == "descripcion larga":
-                                descripcion_larga = acumulador.strip()
-                            elif seccion_actual == "empresa":
-                                empresa = acumulador.strip()
-                            elif seccion_actual == "plataformas":
-                                plataformas = acumulador.strip()
-                            elif seccion_actual == "aportacion":
-                                aportacion = acumulador.strip()
-                            acumulador = ""  # Reiniciar acumulador para la nueva sección
+                            # Reiniciar el acumulador para la siguiente sección
+                            acumulador = ""  
                         
                         # Acumular las líneas que pertenecen a la sección actual
                         else:
@@ -99,7 +103,7 @@ try:
                 'empresa': empresa,
                 'plataformas': plataformas,
                 'aportacion': aportacion,
-                'etiquetas': etiquetas,
+                'etiquetas': [etiqueta.strip() for etiqueta in etiquetas],  # Limpiar etiquetas
                 'tipo': 'link' if link_videos else 'video' if link_videos else 'imagen',
                 'media': link_videos[0] if link_videos else proyecto_imagen,
                 'videos': link_videos  # Todos los enlaces de video
