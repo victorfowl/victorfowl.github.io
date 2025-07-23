@@ -1,0 +1,10 @@
+<IfModule mod_mime.c>
+  AddType application/wasm .wasm
+  AddType application/octet-stream .data
+  AddType application/javascript .js
+  AddType application/octet-stream .unityweb
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/wasm
+</IfModule>
