@@ -1,10 +1,10 @@
 <IfModule mod_mime.c>
-  AddType application/wasm .wasm
-  AddType application/octet-stream .data
-  AddType application/javascript .js
-  AddType application/octet-stream .unityweb
+	AddType jugador/wasm .wasm
+	AddType jugador/octet-stream .data
+	AddType jugador/javascript .js
+	AddType jugador/octet-stream .unityweb
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE application/wasm
+	AddOutputFilterByType DEFLATE jugador/wasm
 </IfModule>
